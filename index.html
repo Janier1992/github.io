@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Alco - Proyectos Calidad</title> <!-- Título de pestaña actualizado -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="alco-css-separated.css">
+</head>
+
+<body>
+
+    <!-- Pantalla de Login -->
+    <div class="login-container active" id="loginContainer">
+        <header class="login-header">
+            <!-- LOGO EN LOGIN: Asegúrate que 'LOGO.png.jpg' está en 'img/' o usa 'logo-placeholder.png' -->
+            <img src="img/LOGO.png.jpg" alt="Logo Alco Windows & Doors" class="logo">
+            <!-- TÍTULO EN LOGIN -->
+            <span class="login-page-title">WEB PROYECTOS CALIDAD</span>
+            <!-- <span class="welcome-text">Bienvenido al Sistema</span> El texto anterior puede ser redundante ahora -->
+        </header>
+
+        <div class="login-form-container">
+            <h2 class="login-form-title">Acceso al Sistema</h2>
+            <form class="login-form" id="loginForm">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="login-button">Ingresar</button>
+            </form>
+        </div>
+
+        <footer class="login-footer">
+            <p class="company-message">Alco S.A.S. - Excelencia en Calidad y Producción</p>
+            <p>© 2025 Desarrollado por Geankarlo Paz Muñoz & Janier Mosquera Mosquera</p>
+        </footer>
+    </div>
+
+    <!-- Menú Principal -->
+    <div class="main-container" id="mainContainer">
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="img/LOGO.png.jpg" alt="Logo Alco" class="logo">
+                <span>Menú</span>
+            </div>
+            <div class="user-info">
+                <span id="userDisplay">Usuario: Administrador</span>
+                <!-- BOTÓN CERRAR SESIÓN -->
+                <button id="logoutButton" class="logout-button">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <h1 class="main-title">Gestión de la información</h1>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3 class="card-title">Formularios de Inspección</h3>
+                <p class="card-description">Gestión de formularios para todas las áreas de producción: Perfilería,
+                    Pintura,
+                    Troquelados, Felpa y Empaque, Vidrio y Despachos.</p>
+                <button class="card-button" data-module="formulariosModule">Acceder</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h3 class="card-title">Biblioteca de Archivos</h3>
+                <p class="card-description">Acceso a instructivos, manuales, fichas técnicas, normas y formatos
+                    necesarios
+                    para la operación.</p>
+                <button class="card-button" data-module="bibliotecaModule">Acceder</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="card-title">Indicadores de Gestión</h3>
+                <p class="card-description">Visualización de KPIs, reportes y métricas para la toma de decisiones basada
+                    en
+                    datos.</p>
+                <button class="card-button" data-module="indicadoresModule">Acceder</button>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <button><i class="fas fa-chevron-left"></i></button>
+            <button><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Módulo de Formularios de Inspección -->
+        <div class="module-container" id="formulariosModule">
+            <button class="back-button" id="backFromFormularios"><i class="fas fa-arrow-left"></i> Volver al
+                Menú</button>
+            <h2 class="module-title">Formularios de Inspección</h2>
+
+            <div class="form-selector">
+                <select id="formType">
+                    <option value="">Seleccione el área a inspeccionar</option>
+                    <option value="perfileria">Perfilería</option>
+                    <option value="pintura">Pintura</option>
+                    <option value="troquelados">Troquelados</option>
+                    <option value="felpa">Felpa y Empaque</option>
+                    <option value="vidrio">Vidrio crudo y Templado</option>
+                    <option value="despachos">Despachos</option>
+                </select>
+            </div>
+
+            <form class="inspection-form" id="inspectionForm">
+                <div class="form-group">
+                    <label for="inspectionDate">Fecha de Inspección:</label>
+                    <input type="date" id="inspectionDate" name="inspectionDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspectorName">Inspector:</label>
+                    <input type="text" id="inspectorName" name="inspectorName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productCode">Código del Producto:</label>
+                    <input type="text" id="productCode" name="productCode" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="batchNumber">Número de Lote:</label>
+                    <input type="text" id="batchNumber" name="batchNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="measurementOne">Medida 1 (mm):</label>
+                    <input type="number" id="measurementOne" name="measurementOne" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="measurementTwo">Medida 2 (mm):</label>
+                    <input type="number" id="measurementTwo" name="measurementTwo" step="0.01">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Estado:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Seleccione un estado</option>
+                        <option value="aprobado">Aprobado</option>
+                        <option value="rechazado">Rechazado</option>
+                        <option value="pendiente">Pendiente de revisión</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="defectType">Tipo de Defecto (si aplica):</label>
+                    <select id="defectType" name="defectType">
+                        <option value="">Ninguno</option>
+                        <option value="dimensional">Dimensional</option>
+                        <option value="visual">Visual</option>
+                        <option value="funcional">Funcional</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="grid-column: span 2;">
+                    <label for="observations">Observaciones:</label>
+                    <textarea id="observations" name="observations"></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="submit-button">Guardar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Módulo de Biblioteca de Archivos -->
+        <div class="module-container" id="bibliotecaModule">
+            <button class="back-button" id="backFromBiblioteca"><i class="fas fa-arrow-left"></i> Volver al
+                Menú</button>
+            <h2 class="module-title">Biblioteca de Archivos</h2>
+
+            <div class="library-filters">
+                <select id="documentType">
+                    <option value="">Todos los tipos</option>
+                    <option value="instructivo">Instructivos de Diseño</option>
+                    <option value="manual">Manuales de Proceso</option>
+                    <option value="ficha">Fichas Técnicas</option>
+                    <option value="norma">Normas de Aplicación</option>
+                    <option value="formato">Formatos de Impresión</option>
+                </select>
+
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="documentSearch" placeholder="Buscar documentos...">
+                </div>
+            </div>
+
+            <table class="documents-table">
+                <thead>
+                    <tr>
+                        <th>Nombre del Documento</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                        <th>Tamaño</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Manual de Procesos - Perfilería</td>
+                        <td>Manual</td>
+                        <td>12/04/2025</td>
+                        <td>2.3 MB</td>
+                        <td class="document-actions">
+                            <button class="view-btn"><i class="fas fa-eye"></i> Ver</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Descargar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instructivo de Calidad - Pintura</td>
+                        <td>Instructivo</td>
+                        <td>05/03/2025</td>
+                        <td>1.5 MB</td>
+                        <td class="document-actions">
+                            <button class="view-btn"><i class="fas fa-eye"></i> Ver</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Descargar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ficha Técnica - Vidrio Templado</td>
+                        <td>Ficha</td>
+                        <td>18/02/2025</td>
+                        <td>500 KB</td>
+                        <td class="document-actions">
+                            <button class="view-btn"><i class="fas fa-eye"></i> Ver</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Descargar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Norma ISO 9001:2015 - Extracto</td>
+                        <td>Norma</td>
+                        <td>21/01/2025</td>
+                        <td>3.1 MB</td>
+                        <td class="document-actions">
+                            <button class="view-btn"><i class="fas fa-eye"></i> Ver</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Descargar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Módulo de Indicadores de Gestión -->
+        <div class="module-container" id="indicadoresModule">
+            <button class="back-button" id="backFromIndicadores"><i class="fas fa-arrow-left"></i> Volver al
+                Menú</button>
+            <h2 class="module-title">Indicadores de Gestión</h2>
+
+            <div class="kpi-filters">
+                <select id="kpiArea">
+                    <option value="">Todas las áreas</option>
+                    <option value="perfileria">Perfilería</option>
+                    <option value="pintura">Pintura</option>
+                    <option value="troquelados">Troquelados</option>
+                    <option value="felpa">Felpa y Empaque</option>
+                    <option value="vidrio">Vidrio</option>
+                    <option value="despachos">Despachos</option>
+                </select>
+
+                <label for="kpiStartDate">Desde:</label>
+                <input type="date" id="kpiStartDate">
+
+                <label for="kpiEndDate">Hasta:</label>
+                <input type="date" id="kpiEndDate">
+
+                <button class="submit-button" id="updateKpiBtn">Actualizar</button>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3 class="chart-title">Porcentaje de Defectos por Área</h3>
+                    <div class="chart-area">
+                        <canvas id="defectsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Tiempos de Inspección</h3>
+                    <div class="chart-area">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Productos Rechazados vs Aprobados</h3>
+                    <div class="chart-area">
+                        <canvas id="approvalChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Tendencia Mensual de Calidad</h3>
+                    <div class="chart-area">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <p>© 2025 Alco S.A.S. - Desarrollado por Geankarlo Paz Muñoz & Janier Mosquera Mosquera</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="alco-js-separated.js"></script>
+
+</body>
+
+</html>
