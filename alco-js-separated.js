@@ -3,6 +3,7 @@ const validUsers = [
     { user: "Janier", pass: "admin" },
     { user: "Gean", pass: "admin1" },
     { user: "Campo", pass: "123456" }
+    { user: "Emma", pass: "123" }
 ];
 
 // Simulación de la autenticación
